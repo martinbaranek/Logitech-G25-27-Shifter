@@ -82,24 +82,38 @@ void get_G25_Shifter() {
     if (G25.getButton(i) == 1) {
       hatValue = hatValue + (1 << i - 11); //Shifting bit in by index minus 11... so 1,2,3,4 shifts. = 0,2,4,8,16 values
     }
-    switch (hatValue) {
-      case 2:
-        Joystick.setHatSwitch(0, 90);
-        break;
-      case 8:
-        Joystick.setHatSwitch(0, 180);
-        break;
-      case 4:
-        Joystick.setHatSwitch(0, 270);
-        break;
-      case 16:
-        Joystick.setHatSwitch(0, 360);
-        break;
-      default:
-        Joystick.setHatSwitch(0, -1); //JOYSTICK_HATSWITCH_RELEASE
-        break;
-    }
-  }// end getting the D-Pad buttons
+  }
+
+  switch (hatValue) {
+    case 2:
+      Joystick.setHatSwitch(0, 90);
+      break;
+    case 8:
+      Joystick.setHatSwitch(0, 180);
+      break;
+    case 4:
+      Joystick.setHatSwitch(0, 270);
+      break;
+    case 16:
+      Joystick.setHatSwitch(0, 360);
+      break;
+    case 18:
+      Joystick.setHatSwitch(0, 45);
+      break;
+    case 10:
+      Joystick.setHatSwitch(0, 135);
+      break;
+    case 12:
+      Joystick.setHatSwitch(0, 225);
+      break;
+    case 20:
+      Joystick.setHatSwitch(0, 315);
+      break;  
+    default:
+      Joystick.setHatSwitch(0, -1); //JOYSTICK_HATSWITCH_RELEASE
+      break;
+  }
+// end getting the D-Pad buttons
 
   Joystick.setYAxis(G25.getHandbrake());
 
